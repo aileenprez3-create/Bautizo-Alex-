@@ -1,0 +1,214 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bautizo Alex Jaaziel</title>
+
+
+<style>
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(#eaf6ff, #ffffff);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+
+/* Nubes */
+.cloud {
+    position: absolute;
+    top: 50px;
+    font-size: 40px;
+    opacity: 0.7;
+    animation: float 60s linear infinite;
+}
+
+
+.cloud:nth-child(1) { left: -100px; top: 80px; }
+.cloud:nth-child(2) { left: -200px; top: 200px; }
+
+
+@keyframes float {
+    from { transform: translateX(0); }
+    to { transform: translateX(120vw); }
+}
+
+
+.container {
+    max-width: 600px;
+    margin: 80px auto;
+    background: white;
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 2;
+}
+
+
+.teddy {
+    font-size: 60px;
+    animation: bounce 2s infinite;
+}
+
+
+@keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+
+h1 { color: #6aa9e9; }
+h2 { color: #4f8fd1; }
+
+
+.box {
+    background: #f0f7ff;
+    padding: 15px;
+    border-radius: 15px;
+    margin: 15px 0;
+}
+
+
+.countdown {
+    background: #e1f0ff;
+    padding: 15px;
+    border-radius: 15px;
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+
+button {
+    background: #6aa9e9;
+    color: white;
+    border: none;
+    padding: 14px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+
+button:hover { background: #4f8fd1; }
+
+
+.footer {
+    font-size: 14px;
+    color: #7a9bb8;
+    margin-top: 20px;
+}
+
+
+.map {
+    margin-top: 15px;
+}
+</style>
+</head>
+
+
+<body>
+
+
+<!-- Música -->
+<audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-sweet.mp3" type="audio/mp3">
+</audio>
+
+
+<!-- Nubes -->
+<div class="cloud">☁️</div>
+<div class="cloud">☁️</div>
+
+
+<div class="container">
+
+
+    <div class="teddy">🧸👼</div>
+
+
+    <h1>Mi Bautizo</h1>
+    <h2>Alex Jaaziel Mauricio Pérez</h2>
+
+
+    <p>Con la bendición de Dios y mucho amor 🩵</p>
+
+
+    <p><strong>📅 20 de julio 2026</strong></p>
+    <p><strong>⏰ 12:00 PM</strong></p>
+    <p>⛪ Iglesia del Socorro, Puebla</p>
+    <p>🎉 Mi Pequeño Jardín</p>
+
+
+    <div class="box">
+        <p><strong>Mis papás:</strong></p>
+        <p>Víctor Daniel Mauricio Díaz</p>
+        <p>Fátima Aileen Pérez Ramírez</p>
+    </div>
+
+
+    <div class="box">
+        <p><strong>Padrinos:</strong></p>
+        <p>________________________</p>
+    </div>
+
+
+    <div class="countdown" id="countdown">⏳ Cargando...</div>
+
+
+    <h2>Ubicación</h2>
+
+
+    <div class="map">
+        <iframe 
+            src="https://maps.google.com/maps?q=iglesia%20del%20socorro%20puebla&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            width="100%" height="200" style="border-radius:15px; border:0;">
+        </iframe>
+    </div>
+
+
+    <h2>Confirmar asistencia</h2>
+
+
+    <a href="https://wa.me/522214357641?text=Hola,%20confirmo%20mi%20asistencia%20al%20bautizo%20de%20Alex%20Jaaziel" target="_blank">
+        <button>Confirmar por WhatsApp 💬</button>
+    </a>
+
+
+    <div class="footer">
+        <p>Con cariño, familia Mauricio Pérez 🩵</p>
+    </div>
+
+
+</div>
+
+
+<script>
+const eventDate = new Date("July 20, 2026 12:00:00").getTime();
+
+
+setInterval(() => {
+    const now = new Date().getTime();
+    const distance = eventDate - now;
+
+
+    const d = Math.floor(distance / (1000*60*60*24));
+    const h = Math.floor((distance % (1000*60*60*24))/(1000*60*60));
+    const m = Math.floor((distance % (1000*60*60))/(1000*60));
+
+
+    document.getElementById("countdown").innerHTML =
+        `Faltan 💙 ${d} días ${h} hrs ${m} min`;
+
+
+    if(distance < 0){
+        document.getElementById("countdown").innerHTML = "¡Hoy es el gran día! 👼✨";
+    }
+}, 1000);
+</script>
+
+
+</body>
+</html>
